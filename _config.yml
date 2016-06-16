@@ -1,0 +1,19 @@
+name: ""
+timezone: Europe/Copenhagen
+
+ga: ""
+
+markdown: kramdown
+kramdown:
+    auto_id_prefix: h-
+    auto_id_stripping: false
+    auto_ids: true
+    footnote_backlink: "&#8617;&#65038;"
+    input: GFM
+    syntax_highlighter: rouge
+    toc_levels: 3..6
+highlighter: rouge
+
+gems:
+    - jekyll-sitemap
+    - jekyll-redirect-from
