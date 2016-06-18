@@ -1,0 +1,233 @@
+<html>
+    <head>
+        <title>{{ site.name }}{% if page.show_comments %}&mdash;with comments{% endif %}</title>
+        <meta http-equiv="x-dns-prefetch-control" content="on" />
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha384-wKclsw1inR27tF/KhTEhyufz5SmBKSkOaIEKhq9qu8QbqeaMhzuGtCQmrghNKXq0" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" />
+    </head>
+    <body>
+        <style>
+            legend + section.column,
+            legend + section.columns {
+                margin-left: 0;
+            }
+            select { height: 85px; }
+            p.comment,
+            ul {
+                {% if page.show_comments == false %}display: none;{% endif %}
+            }
+
+            p.info { background-color: #cfc; }
+
+            fieldset { border-top: 1px dotted #BBB; }
+        </style>
+
+        <div class="container" role="main">
+            <h1>{{ site.name }}</h1>
+            <p><strong>v{{ site.version }}</strong></p>
+
+        <div class="row">
+            <nav class="twelve columns" role="navigation">
+                <a class="button button-primary" href="/{% if page.show_comments == false %}comments{% endif %}">{% if page.show_comments %}Hide{% else %}Show{% endif %} comments</a>
+            </nav>
+        </div>
+
+        <!-- Graphical settings -->
+            <form id="graphics">
+            <!-- Resolution -->
+                <fieldset class="row">
+                    <ul>
+                        <li>Start by hiding the resolutions the user won&rsquo;t want because of a different aspect ratio.</li>
+                        <li>Use a number instead of a slider for FoV; people will assume higher is better.</li>
+                    </ul>
+
+                    <legend>Resolution</legend>
+
+                    <section class="three columns" role="region">
+                        <label for="resolution-ratio">Aspect ratio</label>
+
+                        <select class="u-full-width">
+                            <option selected>16:9</option>
+                            <option>16:10</option>
+                            <option>Ultrawide</option>
+                        </select>
+                    </section>
+
+                    <section class="three columns" role="region">
+                        <label for="resolution-dimensions">Dimensions</label>
+
+                        <!-- Datalist -->
+                        <select class="u-full-width">
+                            <option>1920&times;1080</option>
+                        </select>
+                    </section>
+
+                    <section class="two columns" role="region">
+                        <label for="fps-cap">Frame cap</label>
+
+                        <input class="u-full-width" type="number" name="fps-cap" step="1" value="60" />
+                    </section>
+
+
+                    <section class="four columns" role="region">
+                        <label for="fov">Field of view (Hor+)</label>
+
+                        <input type="number" min="0" max="180" step="1" value="90" /> Deg.
+                        <input type="number" min="0" max="200" step="1" value="103" /> FoV
+                    </section>
+
+                    <section class="twelve columns" role="region">
+                        <p class="info"><a href="http://pcgamingwiki.com/wiki/Glossary:Field_of_view_(FOV)">Field of view (or vision)</a> determines your peripheral vision in games. You start by deciding on a degree value, after which your aspect ratio is used to calculate your FoV value. People didn&rsquo;t use to care about this, until we moved from the standard 4:3 monitors to 16:9 and 16:10. These days, ultra-widescreen and multi-monitor support are the hot topic.</p>
+                    </section>
+                </fieldset>
+            <!-- Anti-aliasing -->
+                <fieldset class="row">
+                    <ul>
+                        <li>Separate the option to enable/disable AA so people won&rsquo;t have to remember which type of AA they picked, and are free to turn it on and off.</li>
+                        <li>Show all the options side by side to allow people to gain an overview and compare.</li>
+                        <li>Don&rsquo;t create separate dropdowns for different multipliers.</li>
+                        <li>Make at least some effort of explaining the difference between the types.</li>
+                    </ul>
+
+                    <legend>Anti-aliasing</legend>
+
+                    <section class="two columns" role="region">
+                        <label for="aa-is-enabled">Enable?</label>
+
+                        <input type="checkbox" name="aa-is-enabled" checked /><span class="label-aa-is-enabled"> Yes</span>
+                    </section>
+
+                    <section class="two columns" role="region">
+                        <label for="aa-type">Type</label>
+
+                        <select class="u-full-width" multiple>
+                            <option>(SSAA/FSAA)</option>
+                            <option>FXAA</option>
+                            <option>SMAA</option>
+                            <option>TAA</option>
+                            <option selected>TSSAA</option>
+                        </select>
+                        <!-- http://gaming.stackexchange.com/a/265505 -->
+                    </section>
+
+                    <section class="two columns" role="region">
+                        <label for="aa-multiplier">Multiplier</label>
+
+                        <select name="aa-multiplier">
+                            <option>&times;2</option>
+                            <option>&times;4</option>
+                            <option>&times;8</option>
+                            <option>&times;16</option>
+                        </select>
+                    </section>
+
+                    <section class="six columns" role="region">
+                        <p class="info"><strong>Full-Scene <abbr title="Anti-Aliasing">AA</abbr></strong> is ...</p>
+
+                        <p class="info"><i>(RAM dependent ...)</p>
+                    </section>
+                </fieldset>
+            <!-- Textures -->
+                <fieldset class="row">
+                    <legend>Textures</legend>
+
+                    <section class="two columns" role="region">
+                        <label for="texture">Type</label>
+
+                        <select class="u-full-width" multiple name="texture">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                            <option>Ultra</option>
+                        </select>
+                    </section>
+
+                    <section class="three columns" role="region">
+                        <label for="texture-filtering">Filtering (AF)</label>
+
+                        <select class="u-full-width" multiple name="texture-filtering">
+                            <option selected>Off</option>
+                            <option>&times;2</option>
+                            <option>&times;4</option>
+                            <option>&times;8</option>
+                            <option>&times;16</option>
+                        </select>
+                    </section>
+
+                    <section class="twelve columns" role="region">
+                        <p class="info">Texture filtering, also known as Anisotropic Filtering ...</p>
+                    </section>
+                </fieldset>
+            <!-- Misc -->
+                <fieldset class="row">
+                    <ul>
+                        <li>No one knows what the hell Ambient Occlusion is.</li>
+                        <li>Everyone knows about the V-Sync setting, but no one knows what it <em>does</em>.</li>
+                    </ul>
+
+                    <legend>Misc.</legend>
+
+                    <div class="row">
+                        <section class="three columns" role="region">
+                            <label for="ao-enabled">Ambient occlusion</label>
+
+                            <input type="checkbox" name="ao-enabled" checked /><span class="label-ao-is-enabled"> Enable</span>
+                        </section>
+
+                        <section class="nine columns" role="region">
+                            <p class="info">Ambient occlusion is ...</p>
+                        </section>
+                    </div>
+
+                    <div class="row">
+                        <section class="three columns" role="region">
+                            <label for="vsync-enabled">V-Sync</label>
+
+                            <input type="checkbox" name="vsync-enabled" /><span class="label-aa-is-enabled"> Enable</span>
+                        </section>
+
+                        <section class="nine columns" role="region">
+                            <p class="info"><strong>Vertical sync</strong> fixes tearing, but creates input lag.</p>
+                        </section>
+                    </div>
+                </fieldset>
+            </form>
+
+        <!-- Control settings -->
+            <form id="controls">
+                <fieldset class="row">
+                    <ul>
+                        <li>Allow users to enter a fractional sensitivity value.</li>
+                    </ul>
+
+                    <legend>Mouse sensitivity</legend>
+
+                    <section class="two columns" role="region">
+                        <label for="sensitivity-value">Value</label>
+
+                        <input type="number" name="sensitivity-value" class="u-full-width" min="0" max="180" value="50" />
+                    </section>
+
+                    <section class="two columns" role="region">
+                        <label for="sensitivity-metric">Metric</label>
+
+                        <select name="sensitivity-type">
+                            <option selected>Standard</option>
+                            <option>in/360</option>
+                            <option>cm/360</option>
+                        </select>
+                    </section>
+
+                    <section class="eight columns" role="region">
+                        <p class="info">Three things factor into <a href="/asides/mouse-settings/">mouse sensitivity</a>: Windows sensitivity, DPI, and game sensitivity.</p>
+
+                        <p class="info">You should choose your sensitivity in the above order and go with the game sensitivity last.</p>
+                    </section>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
