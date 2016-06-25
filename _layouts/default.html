@@ -19,7 +19,7 @@
 
             .comment { {% if page.show_comments == false %}display: none;{% endif %} }
 
-            p.info { background-color: #cfc; }
+            .info { background-color: #cfc; }
         </style>
 
         <div class="container" role="main">
@@ -122,9 +122,10 @@
                     </section>
 
                     <section class="six columns" role="region">
-                        <p class="info"><strong>Full-Scene <abbr title="Anti-Aliasing">AA</abbr></strong> is ...</p>
-
-                        <p class="info"><i>(RAM dependent ...)</i></p>
+                        <div class="info">
+                            <p><strong>Full-Scene <abbr title="Anti-Aliasing">AA</abbr></strong> is ...</p>
+                            <p><i>(RAM dependent ...)</i></p>
+                        </div>
                     </section>
                 </fieldset>
             <!-- Textures -->
@@ -187,8 +188,10 @@
                         </section>
 
                         <section class="nine columns" role="region">
-                            <p class="info"><strong>Vertical sync</strong> fixes tearing, but creates input lag.</p>
-                            <p class="info">Be sure to turn V-Sync <em>off</em>, if you use <strong>G-Sync</strong> or <strong>Freesync</strong>.</p>
+                            <div class="info">
+                                <p><strong>Vertical sync</strong> fixes tearing, but creates input lag.</p>
+                                <p>Be sure to turn V-Sync <em>off</em>, if you use <strong>G-Sync</strong> or <strong>Freesync</strong>.</p>
+                            </div>
                         </section>
                     </div>
                 </fieldset>
@@ -221,9 +224,10 @@
                     </section>
 
                     <section class="eight columns" role="region">
-                        <p class="info">Three things factor into <a href="/asides/mouse-settings/">mouse sensitivity</a>: Windows sensitivity, DPI, and game sensitivity.</p>
-
-                        <p class="info">You should choose your sensitivity in the above order and go with the game sensitivity last.</p>
+                        <div class="info">
+                            <p>Three things factor into <a href="/asides/mouse-settings/">mouse sensitivity</a>: Windows sensitivity, DPI, and game sensitivity.</p>
+                            <p>You should choose your sensitivity in the above order and go with the game sensitivity last.</p>
+                        </div>
                     </section>
                 </fieldset>
             </form>
