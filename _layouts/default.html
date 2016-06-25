@@ -10,19 +10,16 @@
     </head>
     <body>
         <style>
+            fieldset { border-top: 1px dotted #BBB; }
             legend + section.column,
             legend + section.columns {
                 margin-left: 0;
             }
             select { height: 85px; }
-            p.comment,
-            ul {
-                {% if page.show_comments == false %}display: none;{% endif %}
-            }
+
+            .comment { {% if page.show_comments == false %}display: none;{% endif %} }
 
             p.info { background-color: #cfc; }
-
-            fieldset { border-top: 1px dotted #BBB; }
         </style>
 
         <div class="container" role="main">
@@ -39,7 +36,7 @@
             <form id="graphics">
             <!-- Resolution -->
                 <fieldset class="row">
-                    <ul>
+                    <ul class="comment">
                         <li>Start by hiding the resolutions the user won&rsquo;t want because of a different aspect ratio.</li>
                         <li>Use a number instead of a slider for FoV; people will assume higher is better.</li>
                     </ul>
@@ -85,7 +82,7 @@
                 </fieldset>
             <!-- Anti-aliasing -->
                 <fieldset class="row">
-                    <ul>
+                    <ul class="comment">
                         <li>Separate the option to enable/disable AA so people won&rsquo;t have to remember which type of AA they picked, and are free to turn it on and off.</li>
                         <li>Show all the options side by side to allow people to gain an overview and compare.</li>
                         <li>Don&rsquo;t create separate dropdowns for different multipliers.</li>
@@ -163,7 +160,7 @@
                 </fieldset>
             <!-- Misc -->
                 <fieldset class="row">
-                    <ul>
+                    <ul class="comment">
                         <li>No one knows what the hell Ambient Occlusion is.</li>
                         <li>Everyone knows about the V-Sync setting, but no one knows what it <em>does</em>.</li>
                     </ul>
@@ -200,7 +197,7 @@
         <!-- Control settings -->
             <form id="controls">
                 <fieldset class="row">
-                    <ul>
+                    <ul class="comment">
                         <li>Allow users to enter a fractional sensitivity value.</li>
                         <li>Include in/360 (and cm/360) settings as a setting that works across games.</li>
                     </ul>
