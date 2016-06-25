@@ -31,7 +31,7 @@
 
         <div class="row">
             <nav class="twelve columns" role="navigation">
-                <a class="button button-primary" href="/{% if page.show_comments == false %}comments{% endif %}">{% if page.show_comments %}Hide{% else %}Show{% endif %} comments</a>
+                <a class="button button-primary" href="{{ site.baseurl }}/{% if page.show_comments == false %}comments{% endif %}">{% if page.show_comments %}Hide{% else %}Show{% endif %} comments</a>
             </nav>
         </div>
 

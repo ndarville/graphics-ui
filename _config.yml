@@ -1,4 +1,5 @@
 name: Graphics UI
+baseurl: /graphics-ui
 timezone: Europe/Copenhagen
 version: 0.1
 
