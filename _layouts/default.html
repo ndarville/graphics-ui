@@ -17,7 +17,9 @@
             }
             select { height: 85px; }
 
-            .comment { {% if page.show_comments == false %}display: none;{% endif %} }
+        {% if page.show_comments == false %}
+            .comment { display: none; }
+        {% endif %}
 
             .info { background-color: #cfc; }
         </style>
